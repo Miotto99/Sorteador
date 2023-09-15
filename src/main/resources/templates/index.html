@@ -156,7 +156,11 @@ button,[type=button],[type=reset],[type=submit] {
         </div>
 
         <div class="col-sm-12 text-center">
+<<<<<<< HEAD:src/main/resources/templates/index.html
             <button id="enviar" class="btn btn-info" type="submit" onclick="sortear()">Sortear</button>
+=======
+            <button id="sorteia" class="btn" type="submit" onclick="sortear()">Sortear</button>
+>>>>>>> 46061ee55f6521147c09a422743762f32ce5db6a:src/main/resources/templates/Home/index.html
         </div>
         <div class="ball" id="result"></div>
 
@@ -164,5 +168,21 @@ button,[type=button],[type=reset],[type=submit] {
             <source src="movie/background.mp4" type="video/mp4">
         </video>
     </div>
+<<<<<<< HEAD:src/main/resources/templates/index.html
+=======
+    <div class="row mt-5" th:if="${sorteia}">
+        <div class="col-sm-6 text-center" hidden>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Resultado</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+>>>>>>> 46061ee55f6521147c09a422743762f32ce5db6a:src/main/resources/templates/Home/index.html
 </body>
 </html>
