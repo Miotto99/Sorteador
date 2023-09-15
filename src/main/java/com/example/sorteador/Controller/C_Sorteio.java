@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class C_Sorteio {
     @GetMapping("/")
     public String getHome(){
-        return "Home/index";
+        return "/index";
     }
     @PostMapping("/")
     public String postHome(@RequestParam("numMin")int numMin,
@@ -24,6 +24,6 @@ public class C_Sorteio {
         M_Resultado jogada = S_Sorteio.Jogada(qtdNum, numMin, numMax);
         model.addAttribute("maximo", jogada.getQtdNum());
         model.addAttribute("Resultados", jogada.getResultados());
-        return "Home/index";
+        return "/index";
     }
 }
