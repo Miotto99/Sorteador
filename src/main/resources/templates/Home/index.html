@@ -25,14 +25,10 @@ h1,h2,h3,h4,h5,h6 {
   color: #8512b7;
 }
 input {
-    font-family: inherit;
     font-size: 3vw;
-    font-weight: inherit;
-    line-height: inherit;
     background-color: #6f6374 !important;
     color: #fff !important;
     margin: .1em;
-    left:
     padding: 0
 }
 button,[type=button],[type=reset],[type=submit] {
@@ -98,11 +94,11 @@ button,[type=button],[type=reset],[type=submit] {
         </div>
 
         <div class="col-sm-12 text-center">
-            <button class="btn" type="submit" onclick="sortear()">Sortear</button>
+            <button id="sorteia" class="btn" type="submit" onclick="sortear()">Sortear</button>
         </div>
     </div>
-    <div class="row mt-5" th:if="${soma}">
-        <div class="col-sm-6 mt-5 text-center" hidden>
+    <div class="row mt-5" th:if="${sorteia}">
+        <div class="col-sm-6 text-center" hidden>
             <table class="table table-bordered">
                 <thead>
                 <tr>
