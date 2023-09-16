@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
     <style type="text/css">
 body {
   background: #000000;
   margin: 0;
+  font-family: sans-serif;
 }
 .bg_video{
     position: absolute;
@@ -29,7 +24,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -100;
-    background: url(..../movie/background.jpg) no-repeat center;
+    background: url(movie/background.mp4) no-repeat center;
     background-size: cover;
 }
 .container {
@@ -38,25 +33,25 @@ body {
 .ball {
     width: 80px;
     height: 80px;
-    background-color: white;
+    background-color: #6f6374;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: orange;
+    color: cyan;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-    border: 3px solid orange;
+    border: 3px solid cyan;
 }
-
 .ball:hover {
     transform: scale(1.1);
-    background-color: orange;
-    color: white;
+    background-color: cyan;
+    color: #8512b7;
 }
 h1,h2,h3,h4,h5,h6 {
-  font-size: 3vw;
+  font-size: 2vw;
+  font-family: sans-serif;
   margin-bottom: .7em;
   color: #8512b7;
 }
@@ -75,34 +70,58 @@ button,[type=button],[type=reset],[type=submit] {
 .accordion-body{
     background: #6f6374;
 }
-
-
-
     </style>
     <script>
+            let numMin = $("#numMin").val();
+            let numMax = $("#numMax").val();
+            numMin = parseInt(numMin);
+            numMax = parseInt(numMax);
+            let min = Math.ceil(numMin);
+            let max = Math.floor(numMax);
         document.addEventListener("DOMContentLoaded", function () {
-    const ball = document.getElementById("result");
-    const drawButton = document.getElementById("enviar");
+            const ball = document.getElementById("result");
+            const drawButton = document.getElementById("enviar");
 
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Coloque os números que deseja sortear aqui
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Coloque os números que deseja sortear aqui
 
-    drawButton.addEventListener("click", function () {
-        if (numbers.length === 0) {
-            alert("Você precisa adicionar números para sortear.");
-            return;
+            drawButton.addEventListener("click", function () {
+                if (numbers.length === 0) {
+                    alert("Você precisa adicionar números para sortear.");
+                    return;
+                }
+
+                const randomNumber = getRandomNumber(numbers);
+                ball.textContent = randomNumber;
+            });
+
+        function getRandomNumber(arr) {
+            const index = Math.floor(Math.random() * arr.length);
+            return arr[index];
+            }
+        });
+        
+        function Sortear() {
+            let randomNumber = Math.floor(Math.random() * (max - min) + min);
+            return randomNumber;
         }
+        
+        function Bolinhas(){
+            let qtdNum = $("#qtdNum").val();
+            qtdNum = parseInt(qtdNum);
+            let resultados[];
 
-        const randomNumber = getRandomNumber(numbers);
-        ball.textContent = randomNumber;
-    });
+            for (int i = 0; i < qtdNum; i++) {
+                let randomNum;
+                do {
+                    randomNum = (let) Math.floor(Math.random() * ((numMax+1) - numMin) + numMin);
+                } while (randomNum < numMin);
+                resultados[i] = randomNum;
+            }
 
-    function getRandomNumber(arr) {
-        const index = Math.floor(Math.random() * arr.length);
-        return arr[index];
-    }
-});
-
-
+            for (int i = 0; i < qtdNum; i++) {
+                
+            }
+        }
     </script>
 </head>
 <body>
@@ -116,7 +135,7 @@ button,[type=button],[type=reset],[type=submit] {
             <h3>Sortear</h3>
         </div>
         <div class="mb-3 col-sm-2">
-            <input id="qtd" name="qtd" type="number" class="form-control"
+            <input id="qtdNum" name="qtd" type="number" class="form-control"
                    aria-describedby="sp_qtd">
         </div>
         <div class="mb-3 col-sm-5">
@@ -137,6 +156,7 @@ button,[type=button],[type=reset],[type=submit] {
             <input id="numMax" name="numMax" type="number" class="form-control"
                    aria-describedby="sp_numMax">
         </div>
+        
         <div class="mb-3">
             <div class="accordion mb-5" id="accordionExample">
                 <div class="accordion-item">
@@ -148,7 +168,7 @@ button,[type=button],[type=reset],[type=submit] {
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <h3>ta me mentindo</h3>
+                            div
                         </div>
                     </div>
                 </div>
@@ -156,33 +176,16 @@ button,[type=button],[type=reset],[type=submit] {
         </div>
 
         <div class="col-sm-12 text-center">
-<<<<<<< HEAD:src/main/resources/templates/index.html
-            <button id="enviar" class="btn btn-info" type="submit" onclick="sortear()">Sortear</button>
-=======
-            <button id="sorteia" class="btn" type="submit" onclick="sortear()">Sortear</button>
->>>>>>> 46061ee55f6521147c09a422743762f32ce5db6a:src/main/resources/templates/Home/index.html
+            <button id="enviar" class="btn btn-info" type="submit">Sortear</button>
         </div>
+        <div class="col-sm-12 text-end">
         <div class="ball" id="result"></div>
+        </div>
 
-        <video autoplay loop poster="./movie/background" class="bg_video">
+        <video autoplay loop poster="movie/background" class="bg_video">
             <source src="movie/background.mp4" type="video/mp4">
         </video>
     </div>
-<<<<<<< HEAD:src/main/resources/templates/index.html
-=======
-    <div class="row mt-5" th:if="${sorteia}">
-        <div class="col-sm-6 text-center" hidden>
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>Resultado</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-    </div>
 </div>
->>>>>>> 46061ee55f6521147c09a422743762f32ce5db6a:src/main/resources/templates/Home/index.html
 </body>
 </html>
