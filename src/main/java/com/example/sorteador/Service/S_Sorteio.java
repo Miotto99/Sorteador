@@ -1,18 +1,22 @@
-package com.example.sorteador.Service;
+package com.example.demo.Service;
 
-import com.example.sorteador.Model.M_Resultado;
+import com.example.demo.Model.M_Sorteio;
 
 import java.util.Random;
 
 public class S_Sorteio {
-    public static M_Resultado Jogada(int qtdNum, int numMin, int numMax) {
-        int result;
-        Random random = new Random();
-        int valores[] = new int[qtdNum];
-        for (int i = 0; i < qtdNum; i++) {
-            result = random.nextInt(numMax) + 1;
+    public static M_Sorteio Sorteador(int quantosNumeros, int numeroMinimo, int numeroMaximo){
+        int resultados[] = new int[quantosNumeros];
+
+        for (int i = 0; i < quantosNumeros; i++) {
+            int randomNum;
+            do {
+                randomNum = (int) Math.floor(Math.random() * ((numeroMaximo+1) - numeroMinimo) + numeroMinimo);
+            } while (randomNum < numeroMinimo);
+            resultados[i] = randomNum;
         }
-        M_Resultado m_jogada = new M_Resultado(qtdNum, valores);
-        return m_jogada;
+
+        M_Sorteio m_sorteio = new M_Sorteio(quantosNumeros, resultados, numeroMinimo, numeroMaximo);
+        return m_sorteio;
     }
 }
