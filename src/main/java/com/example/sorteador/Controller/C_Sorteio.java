@@ -1,7 +1,7 @@
-package com.example.sorteador.Controller;
+package com.example.demo.Controller;
 
-import com.example.sorteador.Model.M_Resultado;
-import com.example.sorteador.Service.S_Sorteio;
+import com.example.demo.Model.M_Sorteio;
+import com.example.demo.Service.S_Sorteio;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,21 +9,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-
 @Controller
 public class C_Sorteio {
+
     @GetMapping("/")
-    public String getHome(){
-        return "/index";
+    public String getpag(){
+        return "index";
     }
+
     @PostMapping("/")
-    public String postHome(@RequestParam("numMin")int numMin,
-                           @RequestParam("numMax")int numMax,
-                           @RequestParam("qtdNum")int qtdNum,
-                           Model model){
-        M_Resultado jogada = S_Sorteio.Jogada(qtdNum, numMin, numMax);
-        model.addAttribute("maximo", jogada.getQtdNum());
-        model.addAttribute("Resultados", jogada.getResultados());
-        return "/index";
+    public String postRepost(@RequestParam("quantosNumeros") int quantosNumeros,
+                             @RequestParam("numeroMinimo") int numeroMinimo,
+                             @RequestParam("numeroMaximo") int numeroMaximo,
+                             Model model){
+        M_Sorteio m_sorteio = S_Sorteio.Sorteador(quantosNumeros,numeroMinimo,numeroMaximo);
+        model.addAttribute("quantosNumeros", m_sorteio.getQuantosNumeros());
+        model.addAttribute("Minimo", m_sorteio.getNumeroMinimo());
+        model.addAttribute("Maximo", m_sorteio.getNumeroMaximo());
+        model.addAttribute("Resultados", m_sorteio.getResultados());
+        return "index";
     }
 }
