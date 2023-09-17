@@ -72,20 +72,11 @@ button,[type=button],[type=reset],[type=submit] {
 }
     </style>
     <script>
-            let numMin = $("#numMin").val();
-            let numMax = $("#numMax").val();
-            numMin = parseInt(numMin);
-            numMax = parseInt(numMax);
-            let min = Math.ceil(numMin);
-            let max = Math.floor(numMax);
-        document.addEventListener("DOMContentLoaded", function () {
-            const ball = document.getElementById("result");
-            const drawButton = document.getElementById("enviar");
-
-            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Coloque os números que deseja sortear aqui
-
-            drawButton.addEventListener("click", function () {
-                if (numbers.length === 0) {
+        const ball = document.getElementById("result");
+        const drawButton = document.getElementById("enviar");
+        
+        drawButton.addEventListener("click", function () {
+                if (numbers.length == 0) {
                     alert("Você precisa adicionar números para sortear.");
                     return;
                 }
@@ -93,17 +84,6 @@ button,[type=button],[type=reset],[type=submit] {
                 const randomNumber = getRandomNumber(numbers);
                 ball.textContent = randomNumber;
             });
-
-        function getRandomNumber(arr) {
-            const index = Math.floor(Math.random() * arr.length);
-            return arr[index];
-            }
-        });
-        
-        function Sortear() {
-            let randomNumber = Math.floor(Math.random() * (max - min) + min);
-            return randomNumber;
-        }
         
         function Bolinhas(){
             let qtdNum = $("#qtdNum").val();
@@ -118,9 +98,6 @@ button,[type=button],[type=reset],[type=submit] {
                 resultados[i] = randomNum;
             }
 
-            for (int i = 0; i < qtdNum; i++) {
-                
-            }
         }
     </script>
 </head>
@@ -135,8 +112,8 @@ button,[type=button],[type=reset],[type=submit] {
             <h3>Sortear</h3>
         </div>
         <div class="mb-3 col-sm-2">
-            <input id="qtdNum" name="qtd" type="number" class="form-control"
-                   aria-describedby="sp_qtd">
+            <input id="quantosNumeros" name="qtd" type="number" class="form-control"
+                   aria-describedby="sp_quantosNumeros">
         </div>
         <div class="mb-3 col-sm-5">
             <h3>número(s)</h3>
@@ -146,15 +123,15 @@ button,[type=button],[type=reset],[type=submit] {
             <h3>entre</h3>
         </div>
         <div class="mb-3 col-sm-2">
-            <input id="numMin" name="numMin" type="number" class="form-control"
-                   aria-describedby="sp_numMin">
+            <input id="numeroMinimo" name="numeroMinimo" type="number" class="form-control"
+                   aria-describedby="sp_numeroMinimo">
         </div>
         <div class="mb-3 col-sm-1 text-center">
             <h3>e</h3>
         </div>
         <div class="mb-3 col-sm-2">
-            <input id="numMax" name="numMax" type="number" class="form-control"
-                   aria-describedby="sp_numMax">
+            <input id="numeroMaximo" name="numeroMaximo" type="number" class="form-control"
+                   aria-describedby="sp_numeroMaximo">
         </div>
         
         <div class="mb-3">
