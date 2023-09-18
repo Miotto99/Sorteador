@@ -72,35 +72,6 @@ button,[type=button],[type=reset],[type=submit] {
     background: #6f6374;
 }
     </style>
-    <script>
-        const ball = document.getElementById("result");
-        const drawButton = document.getElementById("enviar");
-        
-        drawButton.addEventListener("click", function () {
-                if (numbers.length == 0) {
-                    alert("Você precisa adicionar números para sortear.");
-                    return;
-                }
-
-                const randomNumber = getRandomNumber(numbers);
-                ball.textContent = randomNumber;
-            });
-        
-        function Bolinhas(){
-            let qtdNum = $("#qtdNum").val();
-            qtdNum = parseInt(qtdNum);
-            let resultados[];
-
-            for (int i = 0; i < qtdNum; i++) {
-                let randomNum;
-                do {
-                    randomNum = (let) Math.floor(Math.random() * ((numMax+1) - numMin) + numMin);
-                } while (randomNum < numMin);
-                resultados[i] = randomNum;
-            }
-
-        }
-    </script>
 </head>
 <body>
 <div class="container mt-5">
@@ -146,7 +117,14 @@ button,[type=button],[type=reset],[type=submit] {
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            div
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <button id="ordem" class="btn btn-info" type="button">Ordenar em ordem crescente</button>
+                                </div>
+                                <div class="mt-2 col-sm-12 text-center">
+                                    <button id="repetir" class="btn btn-info" type="button">Não repetir</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,7 +134,7 @@ button,[type=button],[type=reset],[type=submit] {
         <div class="col-sm-12 text-center">
             <button id="enviar" class="btn btn-info" type="submit">Sortear</button>
         </div>
-        <div class="col-sm-12 text-end">
+        <div class="col-sm-12">
         <div class="ball" id="result"></div>
         </div>
 

@@ -14,7 +14,7 @@ public class C_Sorteio {
 
     @GetMapping("/")
     public String getpag(){
-        return "index";
+        return "/index";
     }
 
     @PostMapping("/")
@@ -27,6 +27,6 @@ public class C_Sorteio {
         model.addAttribute("Minimo", m_sorteio.getNumeroMinimo());
         model.addAttribute("Maximo", m_sorteio.getNumeroMaximo());
         model.addAttribute("Resultados", m_sorteio.getResultados());
-        return "index";
+        return "/index";
     }
 }
