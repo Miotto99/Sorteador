@@ -3,74 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css">
     <script src="JS/AJAX.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
     <style type="text/css">
-body {
-  background: #000000;
-  margin: 0;
-  font-family: sans-serif;
-}
-.bg_video{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
-    z-index: -100;
-    background: url(movie/background.mp4) no-repeat center;
-    background-size: cover;
-}
-.container {
-    margin-top: 20px;
-}
-.ball {
-    width: 80px;
-    height: 80px;
-    background-color: #6f6374;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: cyan;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-    border: 3px solid cyan;
-}
-.ball:hover {
-    transform: scale(1.1);
-    background-color: cyan;
-    color: #8512b7;
-}
-h1,h2,h3,h4,h5,h6 {
-  font-size: 2vw;
-  font-family: sans-serif;
-  margin-bottom: .7em;
-  color: #8512b7;
-}
-input {
-    font-size: 3vw;
-    background-color: #6f6374 !important;
-    color: #fff !important;
-    margin: .1em;
-    padding: 0
-}
-button,[type=button],[type=reset],[type=submit] {
-    -webkit-appearance: button;
-    background-color: #6f6374;
-    color: #fff !important;
-}
-.accordion-body{
-    background: #6f6374;
-}
+        body {
+          background: #000000;
+          margin: 0;
+          font-family: sans-serif;
+        }
+        .bg_video{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+            z-index: -100;
+            background: url(movie/background.mp4) no-repeat center;
+            background-size: cover;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .ball {
+            width: 80px;
+            height: 80px;
+            background-color: #6f6374;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: cyan;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border: 3px solid cyan;
+        }
+        .ball:hover {
+            transform: scale(1.1);
+            background-color: cyan;
+            color: #8512b7;
+        }
+        h1,h2,h3,h4,h5,h6 {
+          font-size: 2vw;
+          font-family: sans-serif;
+          margin-bottom: .7em;
+          color: #8512b7;
+        }
+        input {
+            font-size: 3vw;
+            background-color: #6f6374 !important;
+            color: #fff !important;
+            margin: .1em;
+            padding: 0
+        }
+        button,[type=button],[type=reset],[type=submit] {
+            -webkit-appearance: button;
+            background-color: #6f6374;
+            color: #fff !important;
+        }
+        .accordion-body{
+            background: #6f6374;
+        }
     </style>
 </head>
 <body>
@@ -105,7 +110,7 @@ button,[type=button],[type=reset],[type=submit] {
             <input id="numeroMaximo" name="numeroMaximo" type="number" class="form-control"
                    aria-describedby="sp_numeroMaximo">
         </div>
-        
+
         <div class="mb-3">
             <div class="accordion mb-5" id="accordionExample">
                 <div class="accordion-item">
@@ -119,7 +124,8 @@ button,[type=button],[type=reset],[type=submit] {
                         <div class="accordion-body">
                             <div class="row">
                                 <div class="col-sm-12 text-center">
-                                    <button id="ordem" class="btn btn-info" type="button">Ordenar em ordem crescente</button>
+                                    <button id="ordem" class="btn btn-info" type="button">Ordenar em ordem crescente
+                                    </button>
                                 </div>
                                 <div class="mt-2 col-sm-12 text-center">
                                     <button id="repetir" class="btn btn-info" type="button">Não repetir</button>
@@ -135,7 +141,7 @@ button,[type=button],[type=reset],[type=submit] {
             <button id="enviar" class="btn btn-info" type="submit">Sortear</button>
         </div>
         <div class="col-sm-12">
-        <div class="ball" id="result"></div>
+            <div class="ball" id="result"></div>
         </div>
 
         <video autoplay loop poster="movie/background" class="bg_video">
