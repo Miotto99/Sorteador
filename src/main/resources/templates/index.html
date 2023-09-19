@@ -15,26 +15,33 @@
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
     <style type="text/css">
+        *{
+          font-family: var(--bs-body-font-family);
+        }
         body {
           background: #000000;
           margin: 0;
           font-family: sans-serif;
+          height: 100vh;
         }
-        .bg_video{
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: 100%;
-            height: 100%;
-            z-index: -100;
-            background: url(movie/background.mp4) no-repeat center;
-            background-size: cover;
-        }
+        .bg_video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
+  background: url(movie/background.mp4) no-repeat center;
+  background-size: cover;
+}
         .container {
-            margin-top: 20px;
-        }
+  margin-top: 20px;
+  height: 100vh;
+  position: relative; /* Adicione esta propriedade para permitir o posicionamento relativo dos elementos filho */
+  z-index: 1; /* Defina um valor maior para o conteúdo para que ele fique acima do vídeo */
+}
         .ball {
             width: 80px;
             height: 80px;
@@ -65,7 +72,7 @@
             background-color: #6f6374 !important;
             color: #fff !important;
             margin: .1em;
-            padding: 0
+            padding: 0;
         }
         button,[type=button],[type=reset],[type=submit] {
             -webkit-appearance: button;
@@ -75,13 +82,34 @@
         .accordion-body{
             background: #6f6374;
         }
+
+        .showcase video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: -1; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
+}
+
+.showcase {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 0; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
+}
+
+#balls{
+    display: flex;
+}
     </style>
-    <script type="text/javascript">
-        let numMin = $("#numeroMinimo").val();
-    </script>
+
 </head>
 <body>
-<div class="container mt-5">
+<section class="showcase">
+    <video src="movie/background.mp4" autoplay loop muted></video>
+<div class="container">
 
     <p>&nbsp;</p>
     <h3 class="text-center">Simulador de Dados</h3>
@@ -126,11 +154,14 @@
                         <div class="accordion-body">
                             <div class="row">
                                 <div class="col-sm-12 text-center">
-                                    <button id="ordem" class="btn btn-info" type="button">Ordenar em ordem crescente
-                                    </button>
+                                    <label class="checkbox-label ">
+                                        <input id="ordem" type="checkbox" name="ordem" value="ordem">Ordenar em ordem crescente
+                                    </label>
                                 </div>
                                 <div class="mt-2 col-sm-12 text-center">
-                                    <button id="repetir" class="btn btn-info" type="button">Não repetir</button>
+                                    <label class="checkbox-label ">
+                                        <input id="repetir" type="checkbox" name="repetir" value="repetir">Não repetir
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -142,14 +173,13 @@
         <div class="col-sm-12 text-center">
             <button id="enviar" class="btn btn-info" type="submit">Sortear</button>
         </div>
-        <div class="col-sm-12">
-            <div class="ball" id="result"></div>
+        <div id="balls" class="col-sm-12 mt-5">
         </div>
+        <div id="data" style="background: white; border-radius: 5px;" class="col-sm-4 mt-5">
 
-        <video autoplay loop poster="movie/background" class="bg_video">
-            <source src="movie/background.mp4" type="video/mp4">
-        </video>
+        </div>
     </div>
 </div>
+</section>
 </body>
 </html>

@@ -1,10 +1,11 @@
-package com.example.demo.Model;
+package com.example.sorteador.Model;
 
 public class M_Sorteio {
     private int quantosNumeros;
     private int numeroMaximo;
     private int numeroMinimo;
     private int[] resultados;
+    private String dataFormatada;
 
     public M_Sorteio(int quantosNumeros, int[] resultados, int numeroMinimo, int numeroMaximo) {
         this.quantosNumeros = quantosNumeros;
@@ -42,5 +43,13 @@ public class M_Sorteio {
     }
 
     public void setResultados(int[] resultados) {
+    }
+
+    public String getDataFormatada() {
+        return dataFormatada;
+    }
+
+    public void setDataFormatada(String dataFormatada) {
+        this.dataFormatada = dataFormatada;
     }
 }

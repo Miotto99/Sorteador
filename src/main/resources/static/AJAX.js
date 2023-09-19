@@ -13,6 +13,8 @@
                         let quantosNumeros = $("#quantosNumeros").val();
                         let numeroMaximo = $("#numeroMaximo").val();
                         let numeroMinimo = $("#numeroMinimo").val();
+                        let repetir = $("#repetir")[0].checked;
+                        let ordem = $("#ordem")[0].checked;
 
                         if(validaCampoVazio(quantosNumeros)){
                             podeEnviar = false;
@@ -32,10 +34,16 @@
                                     quantosNumeros:quantosNumeros,
                                     numeroMinimo:numeroMinimo,
                                     numeroMaximo:numeroMaximo,
+                                    repetir:repetir,
+                                    ordem:ordem,
                                 },
                                 success: function(data){
-                                    $('html').html(data);
-                                     $("#enviar").click(validaEnvio);
+                                    $("#balls").text("");
+
+                                            for(let i = 0; i < data.length; i++){
+                                                $("#balls").append('<div class="ball" id="result">'+data[i]+'</div>');
+                                            }
+                                            $("#data").html('<h1 style="padding: 10px; border-radius: 5px; background: #fff; display: flex;">'+new Date().toLocaleDateString()+' '+new Date().toLocaleTimeString()+'</h1>')
                                 },
                                 error: function (){
                                 },

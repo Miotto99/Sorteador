@@ -1,12 +1,13 @@
-package com.example.demo.Controller;
+package com.example.sorteador.Controller;
 
-import com.example.demo.Model.M_Sorteio;
-import com.example.demo.Service.S_Sorteio;
+import com.example.sorteador.Service.S_Sorteio;
+import com.example.sorteador.Model.M_Sorteio;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -18,15 +19,13 @@ public class C_Sorteio {
     }
 
     @PostMapping("/")
-    public String postRepost(@RequestParam("quantosNumeros") int quantosNumeros,
+    @ResponseBody
+    public int[] postRepost(@RequestParam("quantosNumeros") int quantosNumeros,
                              @RequestParam("numeroMinimo") int numeroMinimo,
                              @RequestParam("numeroMaximo") int numeroMaximo,
+                             @RequestParam("repetir") boolean repetir,
+                             @RequestParam("ordem") boolean ordem,
                              Model model){
-        M_Sorteio m_sorteio = S_Sorteio.Sorteador(quantosNumeros,numeroMinimo,numeroMaximo);
-        model.addAttribute("quantosNumeros", m_sorteio.getQuantosNumeros());
-        model.addAttribute("Minimo", m_sorteio.getNumeroMinimo());
-        model.addAttribute("Maximo", m_sorteio.getNumeroMaximo());
-        model.addAttribute("Resultados", m_sorteio.getResultados());
-        return "index";
+        return S_Sorteio.Sorteador(quantosNumeros,numeroMinimo,numeroMaximo,repetir,ordem);
     }
 }
