@@ -19,29 +19,29 @@
           font-family: var(--bs-body-font-family);
         }
         body {
-          background: #000000;
-          margin: 0;
-          font-family: sans-serif;
-          height: 100vh;
+            background: #000000;
+            margin: 0;
+            font-family: sans-serif;
+            height: 100vh;
         }
         .bg_video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
-  background: url(movie/background.mp4) no-repeat center;
-  background-size: cover;
-}
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
+            background: url(movie/background.mp4) no-repeat center;
+            background-size: cover;
+          }
         .container {
-  margin-top: 20px;
-  height: 100vh;
-  position: relative; /* Adicione esta propriedade para permitir o posicionamento relativo dos elementos filho */
-  z-index: 1; /* Defina um valor maior para o conteúdo para que ele fique acima do vídeo */
-}
+            margin-top: 20px;
+            height: 100vh;
+            position: relative; /* Adicione esta propriedade para permitir o posicionamento relativo dos elementos filho */
+            z-index: 1; /* Defina um valor maior para o conteúdo para que ele fique acima do vídeo */
+          }
         .ball {
             width: 80px;
             height: 80px;
@@ -84,25 +84,25 @@
         }
 
         .showcase video {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  z-index: -1; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
-}
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            z-index: -1; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
+          }
 
-.showcase {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  z-index: 0; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
-}
+          .showcase {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            z-index: 0; /* Defina um valor menor para o vídeo para que ele fique abaixo do conteúdo */
+          }
 
-#balls{
-    display: flex;
-}
+          #balls{
+              display: flex;
+          }
     </style>
 
 </head>
@@ -176,7 +176,8 @@
         <div id="balls" class="col-sm-12 mt-5">
         </div>
         <div id="data" style="background: white; border-radius: 5px;" class="col-sm-4 mt-5">
-
+        </div>
+        <div id="numeros">
         </div>
     </div>
 </div>
