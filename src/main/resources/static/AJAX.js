@@ -39,11 +39,16 @@
                                 },
                                 success: function(data){
                                     $("#balls").text("");
+                                  
+                                  for(let i = 0; i < data.length; i++){
+                                    $("#balls").append('<div class="ball" id="result">'+data[i]+'</div>');
+                                  }
+                                  
+                                  $("#data").html('<h1 style="padding: 10px; border-radius: 5px; background: #6f6374; display: flex;">'+new Date().toLocaleDateString()+' '+new Date().toLocaleTimeString()+'</h1>')
 
-                                            for(let i = 0; i < data.length; i++){
-                                                $("#balls").append('<div class="ball" id="result">'+data[i]+'</div>');
-                                            }
-                                            $("#data").html('<h1 style="padding: 10px; border-radius: 5px; background: #fff; display: flex;">'+new Date().toLocaleDateString()+' '+new Date().toLocaleTimeString()+'</h1>')
+                                  $("#quantidade").html('<h1 style="background: #6f6374"; display: flex; padding: 10px;">Quantidade sorteada: ' + quantosNumeros + '</h1>')
+
+                                  $("#entre").html('<h1 style="background: #6f6374"; display: flex; padding: 10px;">Número(s) entre : ' + numeroMinimo + ' e ' + numeroMaximo + '</h1>')
                                 },
                                 error: function (){
                                 },
